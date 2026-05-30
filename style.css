@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+:root {
+    --color-red: #cc241d;
+    --color-red-bright: #fb4934;
+    --color-green: #98971a;
+    --color-green-bright: #b8bb26;
+    --color-yellow: #d79921;
+    --color-yellow-bright: #fabd2f;
+    --color-blue: #458588;
+    --color-blue-bright: #83a598;
+    --color-purple: #b16286;
+    --color-purple-bright: #d3869b;
+    --color-aqua: #689d6a;
+    --color-aqua-bright: #8ec07c;
+    --color-gray: #a89984;
+    --color-gray-bright: #928374;
+    --color-orange: #d65d0e;
+    --color-orange-bright: #fe8019;
+
+    --color-bg0: #282828;
+    --color-bg1: #3c3836;
+    --color-bg2: #504945;
+    --color-bg3: #665c54;
+    --color-bg4: #7c6f64;
+
+    --color-fg0: #fbf1c7;
+    --color-fg1: #ebdbb2;
+    --color-fg2: #d5c4a1;
+    --color-fg3: #bdae93;
+    --color-fg4: #a89984;
+}
+
+body {
+    background-color: var(--color-bg0);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--color-bg1);
+
+    overflow: hidden;
+
+    padding: 16px;
+    margin: 16px;
+}
+
+section {
+    background-color: var(--color-bg2);
+    margin: 12px;
+    padding: 12px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 12px;
+}
+
+.profile ul {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+p,
+.profile ul li {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.profile ul li b {
+    color: var(--color-orange);
+    font-weight: 400;
+}
+
+h1 {
+    text-align: center;
+    color: var(--color-orange);
+    font-weight: 800;
+}
+
+h2 {
+    color: var(--color-yellow);
+    font-weight: 400;
+}
+
+h3 {
+    color: var(--color-blue-bright);
+    font-weight: 300;
+}
+
+p,
+pre,
+.profile ul li {
+    color: var(--color-fg0);
+    font-weight: 100;
+}
+
+a {
+    color: var(--color-aqua);
+    text-decoration: none;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    width: 100%;
+}
+
+.project-card {
+    background-color: var(--color-bg3);
+    padding: 12px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 800px) {
+    .profile {
+        flex-direction: column;
+        align-items: center;
+    }
+}
