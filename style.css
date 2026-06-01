@@ -86,7 +86,7 @@ p,
 }
 
 .profile ul li b {
-    color: var(--color-orange);
+    color: var(--color-orange-bright);
     font-weight: 400;
 }
 
@@ -94,7 +94,7 @@ h1 {
     text-align: center;
     color: var(--color-orange);
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 h2 {
@@ -118,7 +118,7 @@ pre,
 }
 
 a {
-    color: var(--color-aqua);
+    color: var(--color-aqua-bright);
     text-decoration: none;
 }
 
