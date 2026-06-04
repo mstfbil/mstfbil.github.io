@@ -32,14 +32,18 @@
 }
 
 body {
-    background-color: var(--color-bg0);
-
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 0;
     margin: 0;
+
+    background-color: var(--color-bg0);
+
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 .container {
@@ -73,16 +77,6 @@ section {
 
 .profile ul {
     list-style: none;
-}
-
-h1,
-h2,
-h3,
-p,
-.profile ul li {
-    font-family: "JetBrains Mono", monospace;
-    font-optical-sizing: auto;
-    font-style: normal;
 }
 
 .profile ul li b {
@@ -135,6 +129,15 @@ a {
 
     display: flex;
     flex-direction: column;
+}
+
+nav {
+    background-color: var(--color-bg2);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
 }
 
 @media (max-width: 800px) {

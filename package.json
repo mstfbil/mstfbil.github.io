@@ -1,0 +1,27 @@
+{
+    "name": "mstfbil.github.io",
+    "version": "1.0.0",
+    "description": "",
+    "homepage": "https://github.com/mstfbil/mstfbil.github.io#readme",
+    "bugs": {
+        "url": "https://github.com/mstfbil/mstfbil.github.io/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/mstfbil/mstfbil.github.io.git"
+    },
+    "license": "ISC",
+    "author": "",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "serve": "npx @11ty/eleventy --serve",
+        "build": "npx @11ty/eleventy"
+    },
+    "devDependencies": {
+        "@11ty/eleventy": "^3.1.6"
+    },
+    "dependencies": {
+        "@11ty/eleventy-navigation": "^1.0.5"
+    }
+}

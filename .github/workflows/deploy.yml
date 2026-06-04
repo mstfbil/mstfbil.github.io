@@ -1,0 +1,34 @@
+name: deploy 11ty
+
+on:
+    push:
+        branches: [main]
+
+permissions:
+    contents: write
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+
+            - name: setup node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: lts/*
+                  cache: "npm"
+
+            - name: install dependencies
+              run: npm ci
+
+            - name: build site
+              run: npx @11ty/eleventy
+
+            - name: deploy to github pages
+              uses: peaceiris/actions-gh-pages@v4
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./_site
+                  cname: voltie.is-a.dev
