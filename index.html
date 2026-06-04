@@ -1,6 +1,8 @@
 ---
-layout: "_layouts/base.html"
+layout: "layouts/base.html"
 title: "home"
+eleventyNavigation:
+    key: "home"
 ---
 
 <section class="profile">
@@ -57,6 +59,18 @@ title: "home"
             </li>
         </ul>
     </div>
+</section>
+<section>
+    <h2>-- recent posts</h2>
+    <ul class="posts-list">
+        {% for post in collections.posts reversed limit: 3 %}
+        <li>
+            <a href="{{ post.url }}"
+                >{{ post.data.title }} - {{ post.date | date: "%B %d, %y" }}</a
+            >
+        </li>
+        {% endfor %}
+    </ul>
 </section>
 <section class="projects-container">
     <h2>-- what i'm working on</h2>

@@ -62,7 +62,8 @@ body {
     margin: 16px;
 }
 
-section {
+section,
+nav {
     background-color: var(--color-bg2);
     margin: 12px;
     padding: 12px;
@@ -131,13 +132,23 @@ a {
     flex-direction: column;
 }
 
-nav {
-    background-color: var(--color-bg2);
+.posts-list {
+    list-style: none;
+    padding: 0;
 }
 
 nav ul {
     list-style: none;
+    padding: 0;
+
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+}
+
+nav ul li {
+    background-color: var(--color-bg3);
 }
 
 @media (max-width: 800px) {
