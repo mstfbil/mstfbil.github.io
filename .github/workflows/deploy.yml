@@ -3,32 +3,36 @@ name: deploy 11ty
 on:
     push:
         branches: [main]
+    workflow_dispatch:
 
 permissions:
-    contents: write
+    contents: read
+    pages: write
+    id-token: write
 
 jobs:
-    deploy:
+    build:
         runs-on: ubuntu-latest
         steps:
-            - name: checkout
-              uses: actions/checkout@v4
-
-            - name: setup node.js
-              uses: actions/setup-node@v4
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
                   node-version: lts/*
                   cache: "npm"
-
-            - name: install dependencies
-              run: npm ci
-
-            - name: build site
-              run: npx @11ty/eleventy
-
-            - name: deploy to github pages
-              uses: peaceiris/actions-gh-pages@v4
+            - run: npm ci
+            - run: npx @11ty/eleventy
+            - name: upload artifact
+              uses: actions/upload-pages-artifact@v3
               with:
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./_site
-                  cname: voltie.is-a.dev
+                  path: "./_site"
+
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - name: deploy to pages
+              id: deployment
+              uses: actions/deploy-pages@v4
