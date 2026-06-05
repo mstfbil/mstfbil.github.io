@@ -1,5 +1,6 @@
 ---
 title: the first post
+date: 2026-06-04
 ---
 
 ## the first post
