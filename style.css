@@ -106,11 +106,21 @@ h3 {
 
 p,
 pre,
+table,
 ul,
 ol {
     color: var(--color-fg0);
     font-weight: 100;
     font-size: 1rem;
+}
+
+table,
+th,
+td {
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid var(--color-bg3);
+    padding: 4px;
 }
 
 a {
