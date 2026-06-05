@@ -1,4 +1,5 @@
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 
 export default async function (eleventyConfig) {
@@ -6,6 +7,8 @@ export default async function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("src");
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+    eleventyConfig.addPlugin(syntaxHighlight);
 
     eleventyConfig.addPlugin(feedPlugin, {
         type: "atom",
