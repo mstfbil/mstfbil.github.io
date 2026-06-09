@@ -20,7 +20,7 @@ export default async function (eleventyConfig) {
         metadata: {
             language: "en",
             title: "voltie_dev's blog",
-            subtitle: "this blog is where i dump my thoughts, i guess",
+            subtitle: "a blog about development, and stuff",
             base: "https://voltie.is-a.dev/blog",
             author: {
                 name: "voltie",
