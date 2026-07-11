@@ -1,3 +1,5 @@
+{% assign previousPost = collections.posts | getPreviousCollectionItem %}
+{%assign nextPost = collections.posts | getNextCollectionItem %}
 <!doctype html>
 <html>
     <head>
@@ -21,6 +23,23 @@
                     <h1>{{ title }}</h1>
                     {{ content }}
                 </article>
+                <nav>
+                    <ul class="post-nav">
+                        {% if previousPost %}
+                        <li>
+                            <a href="{{ previousPost.url }}"
+                                >&lt; {{ previousPost.data.title }}</a
+                            >
+                        </li>
+                        {% endif %} {% if nextPost %}
+                        <li>
+                            <a href="{{ nextPost.url }}"
+                                >{{ nextPost.data.title }} &gt;</a
+                            >
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
             </main>
         </div>
     </body>
