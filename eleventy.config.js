@@ -6,7 +6,6 @@ export default async function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("*.css");
     eleventyConfig.addPassthroughCopy("src");
     eleventyConfig.addPassthroughCopy(".well-known");
-    eleventyConfig.addPassthroughCopy("404.html")
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
