@@ -5,6 +5,7 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 export default async function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("*.css");
     eleventyConfig.addPassthroughCopy("src");
+    eleventyConfig.addPassthroughCopy(".well-known")
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
