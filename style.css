@@ -170,6 +170,15 @@ nav ul li {
     padding: 6px;
 }
 
+article img {
+    max-width: 100%;
+    max-height: 50vh;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+}
+
 @media (max-width: 800px) {
     .profile {
         flex-direction: column;

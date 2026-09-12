@@ -19,7 +19,8 @@
         "build": "npx @11ty/eleventy"
     },
     "devDependencies": {
-        "@11ty/eleventy": "^3.1.6"
+        "@11ty/eleventy": "^3.1.6",
+        "eleventy-plugin-page-assets": "^0.3.0"
     },
     "dependencies": {
         "@11ty/eleventy-navigation": "^1.0.5",

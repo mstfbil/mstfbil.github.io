@@ -1,5 +1,6 @@
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import pageAssetsPlugin from "eleventy-plugin-page-assets";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 
 export default async function (eleventyConfig) {
@@ -28,4 +29,6 @@ export default async function (eleventyConfig) {
             },
         },
     });
+
+    eleventyConfig.addPlugin(pageAssetsPlugin)
 }
