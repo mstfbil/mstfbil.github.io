@@ -68,7 +68,8 @@ eleventyNavigation:
         {% for post in collections.posts reversed limit: 3 %}
         <li>
             <a href="{{ post.url }}"
-                >{{ post.data.title }} - {{ post.date | date: "%B %d, %y" }}</a
+                ><b>{{ post.date | date: "%B %d, %y" }}</b> - {{ post.data.title
+                }}</a
             >
         </li>
         {% endfor %}
@@ -76,9 +77,9 @@ eleventyNavigation:
 </section>
 <section class="projects-container">
     <h2>-- what i'm working on</h2>
-    <div class="projects-grid">
+    <div class="card-grid">
         <a href="https://github.com/mstfbil/lovesid"
-            ><div class="project-card">
+            ><div class="card">
                 <h3>lovesid</h3>
                 <p>
                     a SID chip emulator for the
@@ -87,15 +88,21 @@ eleventyNavigation:
             </div></a
         >
         <a href="https://voltie-dev.itch.io/arrayshift"
-            ><div class="project-card">
+            ><div
+                class="card"
+                style="--bg-image: url(&quot;/assets/arrayshift.png&quot;)"
+            >
                 <h3>arrayshift();</h3>
                 <p>was my entry to GMTK Game Jam 2025</p>
             </div></a
         >
-        <a href="https://github.com/mstfbil/CEstack"
-            ><div class="project-card">
-                <h3>CEstack</h3>
-                <p>stack game for the TI-84 Plus CE calculator</p>
+        <a href="https://github.com/mstfbil/cellmace"
+            ><div
+                class="card"
+                style="--bg-image: url(&quot;/assets/cellmace.png&quot;)"
+            >
+                <h3>cellmaCE</h3>
+                <p>a cell machine mod for the ti-84 plus ce calculator</p>
             </div></a
         >
     </div>
