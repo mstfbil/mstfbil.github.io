@@ -64,7 +64,7 @@ body {
 
 section {
     background-color: var(--color-bg2);
-    margin: 12px;
+    margin: 12px auto;
     padding: 12px;
     border-radius: 8px;
 }
@@ -97,6 +97,15 @@ nav {
 
 .profile-ascii {
     font-size: 0.7rem;
+}
+
+.post-preview {
+    max-height: 100px;
+    overflow: hidden;
+    position: relative;
+
+    color: var(--color-gray);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 95%);
 }
 
 header {
@@ -191,6 +200,8 @@ a {
 
     overflow: hidden;
     position: relative;
+
+    text-align: center;
 }
 
 .card > * {
@@ -233,12 +244,43 @@ article img {
 }
 
 @media (max-width: 800px) {
+    body {
+        background-color: var(--color-bg1);
+    }
+    .container {
+        width: 100%;
+        padding: 4px;
+        margin: 4px;
+        background-color: transparent;
+        box-sizing: border-box;
+    }
+    .card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    section {
+        width: 100%;
+        padding: 16px 0;
+        box-sizing: border-box;
+        background-color: transparent;
+        border-radius: 0;
+        border-bottom: 1px solid var(--color-bg3);
+        text-align: center;
+    }
+    section:first-of-type {
+        border-top: 1px solid var(--color-bg3);
+    }
+    section:last-of-type {
+        border-bottom: none;
+    }
     header {
         flex-direction: column;
     }
     .profile {
         flex-direction: column;
         align-items: center;
+        width: fit-content;
+        margin-bottom: auto;
     }
     .profile-ascii {
         display: none;

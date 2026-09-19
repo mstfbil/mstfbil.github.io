@@ -10,11 +10,14 @@ eleventyNavigation:
 
 <ul class="posts-list">
     {%- for post in collections.posts reversed -%}
-    <li>
-        <a href="{{ post.url }}"
-            ><b>{{ post.date | date: "%B %d, %y" }}</b> - {{ post.data.title
-            }}</a
-        >
-    </li>
+    <a href="{{ post.url }}">
+        <section>
+            <b>{{ post.date | date: "%B %d, %y" }}</b> - {{ post.data.title }}
+            <div class="post-preview">
+                {{ post.templateContent | strip_html | truncate: 500 }}
+            </div>
+        </section>
+    </a>
+
     {%- endfor -%}
 </ul>
