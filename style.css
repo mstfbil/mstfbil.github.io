@@ -55,8 +55,6 @@ body {
 
     background-color: var(--color-bg1);
 
-    overflow: hidden;
-
     padding: 16px;
     margin: 16px;
     border-radius: 16px;
@@ -83,6 +81,8 @@ nav {
     margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
+
+    background-color: var(--color-bg0);
 }
 
 .profile ul {
@@ -110,9 +110,37 @@ nav {
 
 header {
     display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+
+    top: -16px;
+    left: -16px;
+    right: -16px;
+    bottom: -16px;
+
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+
+    z-index: -1;
+
+    background-image: linear-gradient(
+        to bottom,
+        var(--color-bg1) 0%,
+        transparent 100%
+    );
+
+    backdrop-filter: blur(20px);
+    mask: linear-gradient(to bottom, black 80%, transparent 100%);
+    pointer-events: none;
 }
 
 header h1 {
@@ -166,9 +194,8 @@ a {
 }
 
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 16px;
+    column-count: 3;
+    column-gap: 16px;
     width: 100%;
 }
 
@@ -194,14 +221,27 @@ a {
     background-color: var(--color-bg3);
     padding: 12px;
 
+    break-inside: avoid;
+    margin-bottom: 16px;
+
     display: flex;
     flex-direction: column;
     border-radius: 6px;
+    align-items: center;
 
     overflow: hidden;
     position: relative;
 
     text-align: center;
+}
+
+.card img {
+    max-width: 80%;
+    max-height: 50vh;
+    width: auto;
+    height: auto;
+
+    border-radius: 6px;
 }
 
 .card > * {
@@ -275,6 +315,9 @@ article img {
     }
     header {
         flex-direction: column;
+    }
+    .card-grid {
+        column-count: 1;
     }
     .profile {
         flex-direction: column;
