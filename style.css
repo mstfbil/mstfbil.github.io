@@ -74,7 +74,7 @@ nav {
 
 .profile {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: start;
     gap: 24px;
     width: 75%;
@@ -85,6 +85,18 @@ nav {
     background-color: var(--color-bg0);
 }
 
+.profile-stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+}
+
+.profile img {
+    width: 10rem;
+    height: auto;
+}
+
 .profile ul {
     list-style: none;
     padding: 0;
@@ -93,10 +105,6 @@ nav {
 .profile ul li b {
     color: var(--color-orange-bright);
     font-weight: 400;
-}
-
-.profile-ascii {
-    font-size: 0.7rem;
 }
 
 .post-preview {
@@ -325,7 +333,7 @@ article img {
         width: fit-content;
         margin-bottom: auto;
     }
-    .profile-ascii {
+    .profile img {
         display: none;
     }
     pre {
