@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  {% render "_head.html"
+    , title: title %}
+  <body>
+    {% render '_header.html'
+      , collections: collections %}
+    <main>
+      {{ content }}
+    </main>
+  </body>
+</html>

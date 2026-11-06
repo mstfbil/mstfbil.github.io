@@ -1,0 +1,29 @@
+---
+layout: "_base.liquid"
+title: "blog"
+eleventyNavigation:
+    key: "blog"
+    order: 1
+eleventyExcludeFromCollections:
+    - posts
+---
+
+<div class="container">
+  <section class="card">
+    <h1>voltie's blog</h1>
+
+    {% for post in collections.posts reversed %}
+      <a href="{{ post.url }}">
+        <section class="card">
+          <span class="big">
+            <b>{{ post.date | date: "%B %d, %y" }}</b>
+            - {{ post.data.title }}</span>
+          <div class="fadeout">
+            {{ post.templateContent | strip_html | truncate: 1000 }}
+          </div>
+        </section>
+      </a>
+
+    {% endfor %}
+  </section>
+</div>

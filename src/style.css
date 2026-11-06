@@ -1,0 +1,522 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+:root {
+    /* GRUVBOX */
+    --color-red: #cc241d;
+    --color-red-bright: #fb4934;
+    --color-green: #98971a;
+    --color-green-bright: #b8bb26;
+    --color-yellow: #d79921;
+    --color-yellow-bright: #fabd2f;
+    --color-blue: #458588;
+    --color-blue-bright: #83a598;
+    --color-purple: #b16286;
+    --color-purple-bright: #d3869b;
+    --color-aqua: #689d6a;
+    --color-aqua-bright: #8ec07c;
+    --color-gray: #a89984;
+    --color-gray-bright: #928374;
+    --color-orange: #d65d0e;
+    --color-orange-bright: #fe8019;
+
+    --color-bg0: #282828;
+    --color-bg1: #3c3836;
+    --color-bg2: #504945;
+    --color-bg3: #665c54;
+    --color-bg4: #7c6f64;
+
+    --color-fg0: #fbf1c7;
+    --color-fg1: #ebdbb2;
+    --color-fg2: #d5c4a1;
+    --color-fg3: #bdae93;
+    --color-fg4: #a89984;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    background-color: var(--color-bg0);
+
+    font-family: "JetBrains Mono", monospace;
+}
+
+.container {
+    padding-top: 8rem;
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+    padding: 2rem;
+
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    img {
+        width: auto;
+        height: 3rem;
+    }
+
+    nav {
+        flex: 1;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--color-fg0);
+    }
+}
+
+.site-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    backdrop-filter: blur(20px);
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.5) 80%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.scroll-snap-container {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+.scroll-snap-card {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+    align-items: center;
+    padding: 3rem;
+    padding-top: 8rem;
+
+    &#hero {
+        background-color: var(--color-bg4);
+    }
+
+    &#projects {
+        background-color: var(--color-blue);
+    }
+
+    &#latest-posts {
+        background-color: var(--color-orange);
+    }
+
+    @media (max-width: 768px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.scroll-snap-card:not(:last-child)::after {
+    content: "↓";
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: var(--color-fg0);
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    grid-template-areas: "image article";
+    position: relative;
+    width: 100vw;
+    background-color: var(--color-bg1);
+
+    h2 {
+        color: var(--color-aqua);
+    }
+
+    p {
+        color: var(--color-fg3);
+    }
+
+    .project-image {
+        grid-area: image;
+        position: relative;
+        min-width: 0;
+        min-height: 0;
+
+        img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    article {
+        grid-area: article;
+        padding: 2rem;
+        margin: 2rem;
+        min-width: 0;
+    }
+
+    &:nth-of-type(even) {
+        grid-template-columns: 1fr 25%;
+        grid-template-areas: "article image";
+        background-color: var(--color-bg2);
+
+        p,
+        h2 {
+            text-align: right;
+        }
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+
+        .project-image {
+            height: 15rem;
+        }
+
+        article {
+            margin: 0;
+        }
+    }
+}
+
+.card {
+    &.primary {
+        background-color: var(--color-yellow);
+
+        h1 {
+            color: var(--color-bg0);
+        }
+    }
+    &.secondary {
+        background-color: var(--color-fg4);
+    }
+
+    padding: 1.5rem;
+    margin: 1rem;
+
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.fadeout {
+    max-height: 10rem;
+    overflow: hidden;
+    position: relative;
+
+    color: var(--color-gray);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 95%);
+}
+
+h1 {
+    color: var(--color-fg0);
+    font-size: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    color: var(--color-bg0);
+    font-size: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+p {
+    color: var(--color-bg1);
+}
+
+.big {
+    font-size: 1.5rem;
+}
+
+a {
+    transition: 0.05s ease-out;
+    text-decoration: none;
+    color: var(--color-fg1);
+
+    &:hover {
+        scale: 1.1;
+        text-decoration: underline;
+    }
+}
+
+.post {
+    margin: 0 auto;
+    width: 75%;
+    max-width: 768px;
+
+    p,
+    h1,
+    h2,
+    h3 {
+        color: var(--color-fg0);
+    }
+
+    a {
+        color: var(--color-aqua-bright);
+    }
+
+    p {
+        padding-bottom: 1rem;
+    }
+
+    time {
+        color: var(--color-fg4);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        max-height: 30rem;
+        object-fit: contain;
+    }
+}
+
+.post-nav {
+    ul {
+        list-style: none;
+        padding: 2rem;
+
+        display: flex;
+        gap: 2rem;
+
+        li {
+            width: 50%;
+
+            &.previous-post {
+                text-align: left;
+                margin-right: auto;
+            }
+
+            &.next-post {
+                text-align: right;
+                margin-left: auto;
+            }
+        }
+    }
+}
+
+ul.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: center;
+
+    li {
+        &#github {
+            background-color: var(--color-green-bright);
+            fill: white;
+        }
+        &#itchio {
+            background-color: var(--color-red-bright);
+        }
+        &#youtube {
+            background-color: var(--color-red);
+        }
+        &#bluesky {
+            background-color: var(--color-blue);
+        }
+
+        margin: 0.5rem;
+        padding: 1rem;
+
+        svg {
+            width: 1.5rem;
+            height: auto;
+            fill: var(--color-bg1);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--color-bg0);
+
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+}
+
+/* CODE BLOCK SYNTAX HIGHLIGHT */
+/**
+ * Gruvbox dark theme
+ *
+ * Adapted from a theme based on:
+ * Vim Gruvbox dark Theme (https://github.com/morhetz/gruvbox)
+ *
+ * @author Azat S. <to@azat.io>
+ * @version 1.0
+ * modified by me, @mstfbil
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: var(--color-fg1);
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: 0.5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: var(--color-bg0);
+}
+
+/* Inline code */
+:not(pre) > code {
+    padding: 0.02em;
+    border-radius: 0.3em;
+    background-color: var(--color-bg3);
+}
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+    color: var(--color-gray);
+}
+
+.token.delimiter,
+.token.boolean,
+.token.keyword,
+.token.selector,
+.token.important,
+.token.atrule {
+    color: var(--color-red-bright);
+}
+
+.token.operator,
+.token.punctuation,
+.token.attr-name {
+    color: var(--color-gray);
+}
+
+.token.tag,
+.token.tag .punctuation,
+.token.doctype,
+.token.builtin {
+    color: var(--color-yellow-bright);
+}
+
+.token.entity,
+.token.number,
+.token.symbol {
+    color: var(--color-purple-bright);
+}
+
+.token.property,
+.token.constant,
+.token.variable {
+    color: var(--color-red-bright);
+}
+
+.token.string,
+.token.char {
+    color: var(--color-green-bright);
+}
+
+.token.attr-value,
+.token.attr-value .punctuation {
+    color: var(--color-gray);
+}
+
+.token.url {
+    color: var(--color-green-bright);
+    text-decoration: underline;
+}
+
+.token.function {
+    color: var(--color-yellow-bright);
+}
+
+.token.regex {
+    background: var(--color-green-bright);
+}
+
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.inserted {
+    background: var(--color-gray);
+}
+
+.token.deleted {
+    background: var(--color-red-bright);
+}

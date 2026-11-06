@@ -1,0 +1,36 @@
+{% assign previousPost = collections.posts | getPreviousCollectionItem %}
+{% assign nextPost = collections.posts | getNextCollectionItem %}
+
+<!doctype html>
+<html>
+  {% render "_head.html"
+    , title: title %}
+  <body>
+    {% render '_header.html'
+      , collections: collections %}
+    <main class="post container">
+      <article>
+        <h1>{{ title }}</h1>
+        <time datetime="{{ page.date | date: '%Y-%m-%d' }}">
+          {{ page.date | date: '%B %d, %y' }}
+        </time>
+
+        {{ content }}
+      </article>
+      <nav class="post-nav">
+        <ul>
+          {% if previousPost %}
+            <li class="previous-post">
+              <a href="{{ previousPost.url }}">&leftarrow; {{ previousPost.data.title }}</a>
+            </li>
+          {% endif %}
+          {% if nextPost %}
+            <li class="next-post">
+              <a href="{{ nextPost.url }}">&rightarrow; {{ nextPost.data.title }}</a>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </main>
+  </body>
+</html>

@@ -1,12 +1,15 @@
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
-import pageAssetsPlugin from "eleventy-plugin-page-assets";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 
 export default async function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("*.css");
-    eleventyConfig.addPassthroughCopy("assets");
-    eleventyConfig.addPassthroughCopy(".well-known");
+    eleventyConfig.addPassthroughCopy("src/*.css");
+    eleventyConfig.addPassthroughCopy("src/assets");
+    eleventyConfig.addPassthroughCopy("src/**/*.png");
+    eleventyConfig.addPassthroughCopy("src/**/*.jpg");
+    eleventyConfig.addPassthroughCopy("src/**/*.jpeg")
+    eleventyConfig.addPassthroughCopy("src/**/*.webp")
+    eleventyConfig.addPassthroughCopy("src/.well-known");
 
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
@@ -30,5 +33,9 @@ export default async function (eleventyConfig) {
         },
     });
 
-    eleventyConfig.addPlugin(pageAssetsPlugin)
+    return {
+        dir: {
+            input: "src"
+        }
+    }
 }
