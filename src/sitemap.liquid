@@ -1,10 +1,10 @@
 ---
-permalink: sitemap.xml
+permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
 
-<? xml version="1.0" encoding="utf-8" ?>
-<urlset xmlns="http://sitemaps.org">
+<?xml version="1.0" encoding="utf-8" ?>
+<urlset xmlns="https://sitemaps.org">
   {% for page in collections.all %}
     {% unless page.data.excludeFromSitemap %}
       <url>
